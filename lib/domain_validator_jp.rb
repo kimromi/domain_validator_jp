@@ -37,16 +37,14 @@ class DomainValidatorJp
     parsed.tld
   end
 
+  # common
+
   def include_subdomain?
     !parsed.subdomain.nil?
   end
 
   def valid_public_suffix?
     PublicSuffix.valid?(domain, default_rule: nil, ignore_private: true)
-  end
-
-  def valid_sld_not_dotted?
-    sld !~ /\./
   end
 
   def valid_sld_not_dotted?
@@ -61,6 +59,8 @@ class DomainValidatorJp
     sld !~ /\-$/
   end
 
+  # only multibyte
+
   def sld_multibyte?
     sld !~ /^[0-9A-Za-z\-]+$/
   end
@@ -68,6 +68,8 @@ class DomainValidatorJp
   def valid_length_sld_multibyte?
     1 <= sld.length && sld.length <= 15
   end
+
+  # only multibyte
 
   def valid_length_domain?
     domain.length <= 253
