@@ -2,11 +2,13 @@ PATH
   remote: .
   specs:
     domain-validator-jp (0.1.0)
+      public_suffix
 
 GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.3)
+    public_suffix (3.0.2)
     rake (10.5.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
