@@ -32,6 +32,18 @@ RSpec.describe DomainValidatorJp do
           it { is_expected.to be_falsey }
         end
 
+        context 'start with hyphen' do
+          let(:domain) { '-example.com' }
+
+          it { is_expected.to be_falsey }
+        end
+
+        context 'end with hyphen' do
+          let(:domain) { 'example-.com' }
+
+          it { is_expected.to be_falsey }
+        end
+
         context 'domain length' do
           let(:domain) { "#{'d' * 250}.com" }
 
@@ -54,6 +66,18 @@ RSpec.describe DomainValidatorJp do
 
         context 'tld' do
           let(:domain) { '日本語.invalidtld' }
+
+          it { is_expected.to be_falsey }
+        end
+
+        context 'start with hyphen' do
+          let(:domain) { '-日本語.com' }
+
+          it { is_expected.to be_falsey }
+        end
+
+        context 'end with hyphen' do
+          let(:domain) { '日本語-.com' }
 
           it { is_expected.to be_falsey }
         end
