@@ -1,8 +1,6 @@
-# Domain::Validator::Jp
+# DomainValidatorJp
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/domain/validator/jp`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+domain name validator includes JP domain
 
 ## Installation
 
@@ -22,7 +20,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```rb
+DomainValidatorJp.valid?('example.jp')        # => true
+DomainValidatorJp.valid?('日本語.jp')         # => true
+
+DomainValidatorJp.valid?('①②③.jp')            # => false
+DomainValidatorJp.valid?('example.wrongtld')  # => false
+```
 
 ## Development
 
