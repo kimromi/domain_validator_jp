@@ -21,11 +21,11 @@ Or install it yourself as:
 ## Usage
 
 ```rb
-DomainValidatorJp.valid?('example.jp')        # => true
-DomainValidatorJp.valid?('日本語.jp')         # => true
+DomainValidatorJp.new('example.jp').valid?        # => true
+DomainValidatorJp.new('日本語.jp').valid?         # => true
 
-DomainValidatorJp.valid?('①②③.jp')            # => false
-DomainValidatorJp.valid?('example.wrongtld')  # => false
+DomainValidatorJp.new('①②③.jp').valid?            # => false
+DomainValidatorJp.new('example.wrongtld').valid?  # => false
 ```
 
 ## Development

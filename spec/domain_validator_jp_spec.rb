@@ -2,7 +2,7 @@
 
 RSpec.describe DomainValidatorJp do
   describe '#valid?' do
-    subject { described_class.valid?(domain) }
+    subject { described_class.new(domain).valid? }
 
     describe 'valid' do
       context 'english domain' do
@@ -19,6 +19,12 @@ RSpec.describe DomainValidatorJp do
     end
 
     describe 'invalid' do
+      context 'subdomain' do
+        let(:domain) { 'sub.example.com' }
+
+        it { is_expected.to be_falsey }
+      end
+
       context 'tld' do
         let(:domain) { 'example.invalidtld' }
 
