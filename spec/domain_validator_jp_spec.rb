@@ -19,34 +19,56 @@ RSpec.describe DomainValidatorJp do
     end
 
     describe 'invalid' do
-      context 'subdomain' do
-        let(:domain) { 'sub.example.com' }
+      describe 'singlebyte' do
+        context 'subdomain' do
+          let(:domain) { 'sub.example.com' }
 
-        it { is_expected.to be_falsey }
+          it { is_expected.to be_falsey }
+        end
+
+        context 'tld' do
+          let(:domain) { 'example.invalidtld' }
+
+          it { is_expected.to be_falsey }
+        end
+
+        context 'domain length' do
+          let(:domain) { "#{'d' * 250}.com" }
+
+          it { is_expected.to be_falsey }
+        end
+
+        context 'sld length' do
+          let(:domain) { "#{'d' * 64}.com" }
+
+          it { is_expected.to be_falsey }
+        end
       end
 
-      context 'tld' do
-        let(:domain) { 'example.invalidtld' }
+      describe 'multibyte' do
+        context 'subdomain' do
+          let(:domain) { 'sub.日本語.com' }
 
-        it { is_expected.to be_falsey }
-      end
+          it { is_expected.to be_falsey }
+        end
 
-      context 'domain length' do
-        let(:domain) { "#{'d' * 250}.com" }
+        context 'tld' do
+          let(:domain) { '日本語.invalidtld' }
 
-        it { is_expected.to be_falsey }
-      end
+          it { is_expected.to be_falsey }
+        end
 
-      context 'sld length' do
-        let(:domain) { "#{'d' * 64}.com" }
+        context 'domain length' do
+          let(:domain) { "#{'日' * 16}.com" }
 
-        it { is_expected.to be_falsey }
-      end
+          it { is_expected.to be_falsey }
+        end
 
-      context 'japanese domain' do
-        let(:domain) { '①②③.com' }
+        context 'japanese domain' do
+          let(:domain) { '①②③.com' }
 
-        it { is_expected.to be_falsey }
+          it { is_expected.to be_falsey }
+        end
       end
     end
   end

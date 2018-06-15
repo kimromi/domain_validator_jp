@@ -11,8 +11,13 @@ class DomainValidatorJp
   def valid?
     return false if include_subdomain?
     return false unless valid_public_suffix?
-    return false unless valid_length_domain?
-    return false unless valid_length_sld?
+
+    if sld_multibyte?
+      return false unless valid_length_sld_multibyte?
+    else
+      return false unless valid_length_domain?
+      return false unless valid_length_sld?
+    end
 
     true
   end
@@ -29,6 +34,10 @@ class DomainValidatorJp
     parsed.tld
   end
 
+  def sld_multibyte?
+    sld !~ /^[0-9A-Za-z\-]+$/
+  end
+
   def include_subdomain?
     !parsed.subdomain.nil?
   end
@@ -39,6 +48,10 @@ class DomainValidatorJp
 
   def valid_length_sld?
     sld.length <= 63
+  end
+
+  def valid_length_sld_multibyte?
+    1 <= sld.length && sld.length <= 15
   end
 
   def valid_public_suffix?
