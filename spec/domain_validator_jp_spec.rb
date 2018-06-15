@@ -16,6 +16,12 @@ RSpec.describe DomainValidatorJp do
 
         it { is_expected.to be_truthy }
       end
+
+      context 'punycode domain' do
+        let(:domain) { 'xn--wgv71a119e.com' } # 日本語.com
+
+        it { is_expected.to be_truthy }
+      end
     end
 
     describe 'invalid' do
