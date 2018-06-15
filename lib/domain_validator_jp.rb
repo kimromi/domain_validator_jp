@@ -11,6 +11,7 @@ class DomainValidatorJp
   def valid?
     return false if include_subdomain?
     return false unless valid_public_suffix?
+    return false unless valid_length_domain?
 
     true
   end
@@ -29,6 +30,10 @@ class DomainValidatorJp
 
   def include_subdomain?
     !parsed.subdomain.nil?
+  end
+
+  def valid_length_domain?
+    domain.length <= 253
   end
 
   def valid_public_suffix?
