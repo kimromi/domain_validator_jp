@@ -37,6 +37,12 @@ RSpec.describe DomainValidatorJp do
         it { is_expected.to be_falsey }
       end
 
+      context 'sld length' do
+        let(:domain) { "#{'d' * 64}.com" }
+
+        it { is_expected.to be_falsey }
+      end
+
       context 'japanese domain' do
         let(:domain) { '①②③.com' }
 
