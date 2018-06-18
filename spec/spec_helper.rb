@@ -2,7 +2,7 @@
 
 require 'pry'
 require 'bundler/setup'
-require 'domain_validator_jp'
+require 'domain_validator-jp'
 
 RSpec.configure do |config|
   # Disable RSpec exposing methods globally on `Module` and `main`
