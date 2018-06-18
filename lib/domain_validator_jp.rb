@@ -18,6 +18,7 @@ class DomainValidatorJp
     if sld_multibyte?
       return false unless valid_length_sld_multibyte?
     else
+      return false unless valid_sld_chars?
       return false unless valid_length_domain?
       return false unless valid_length_sld?
     end
@@ -70,6 +71,10 @@ class DomainValidatorJp
   end
 
   # only multibyte
+
+  def valid_sld_chars?
+    sld =~ /^[0-9A-Za-z\-]+$/
+  end
 
   def valid_length_domain?
     domain.length <= 253
