@@ -1,5 +1,9 @@
 # DomainValidatorJp
 
+<a href="https://rubygems.org/gems/domain-validator-jp" title="npm"><img src="https://img.shields.io/gem/v/domain-validator-jp.svg"></a>
+<a href="https://travis-ci.org/kimromi/domain-validator-jp" title="travis"><img src="https://img.shields.io/travis/kimromi/domain-validator-jp.svg"></a>
+<a href="https://github.com/kimromi/domain-validator-jp/blob/master/LICENSE" title="MIT License"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
+
 domain name validator includes JP domain
 
 ## Installation
