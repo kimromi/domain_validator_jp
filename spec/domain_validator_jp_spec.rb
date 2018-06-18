@@ -11,8 +11,28 @@ RSpec.describe DomainValidatorJp do
         it { is_expected.to be_truthy }
       end
 
-      context 'japanese domain' do
-        let(:domain) { '日本語.com' }
+      %w(
+        にほんご
+        ニホンゴ
+        日本語
+        ぁ
+        ァ
+      ).each do |valid_japanese|
+        context "japanese domain #{valid_japanese}" do
+          let(:domain) { "#{valid_japanese}.com" }
+
+          it { is_expected.to be_truthy }
+        end
+      end
+
+      context 'japanese + english domain' do
+        let(:domain) { '日本語japanese.com' }
+
+        it { is_expected.to be_truthy }
+      end
+
+      context 'japanese + hyphen + english domain' do
+        let(:domain) { '日本語-japanese.com' }
 
         it { is_expected.to be_truthy }
       end
@@ -94,10 +114,21 @@ RSpec.describe DomainValidatorJp do
           it { is_expected.to be_falsey }
         end
 
-        context 'japanese domain' do
-          let(:domain) { '①②③.com' }
+        %w(
+          ＡＢＣ
+          １２３
+          ①②③
+          〜
+          ＠
+          ä
+          〠
+          −
+        ).each do |invalid_japanese|
+          context "japanese domain #{invalid_japanese}" do
+            let(:domain) { "#{invalid_japanese}.com" }
 
-          it { is_expected.to be_falsey }
+            it { is_expected.to be_falsey }
+          end
         end
       end
     end

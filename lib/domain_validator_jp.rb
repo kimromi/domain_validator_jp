@@ -17,6 +17,7 @@ class DomainValidatorJp
 
     if sld_multibyte?
       return false unless valid_length_sld_multibyte?
+      return false unless valid_jisx0208?
     else
       return false unless valid_sld_chars?
       return false unless valid_length_domain?
@@ -82,5 +83,14 @@ class DomainValidatorJp
 
   def valid_length_sld?
     sld.length <= 63
+  end
+
+  def valid_jisx0208?
+    valid = /^#{utf8_to_sjis("[\-0-9A-Za-zぁ-んァ-ヶ亜-腕弌-熙]")}+$/
+    valid.match(utf8_to_sjis(sld)) if utf8_to_sjis(sld)
+  end
+
+  def utf8_to_sjis(str)
+    str.encode('Windows-31J') rescue nil
   end
 end
