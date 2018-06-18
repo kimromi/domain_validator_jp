@@ -9,6 +9,7 @@ module DomainValidator
     end
 
     def valid?
+      return false unless fqdn?
       return false if include_subdomain?
       return false unless valid_public_suffix?
       return false unless valid_sld_not_dotted?
@@ -25,6 +26,11 @@ module DomainValidator
       end
 
       true
+    end
+
+    def fqdn?
+      splitted = domain.split('.')
+      splitted.length >= 2 && splitted.all?{|label| !label.empty? }
     end
 
     def parsed

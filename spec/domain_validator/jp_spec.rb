@@ -45,6 +45,22 @@ RSpec.describe DomainValidator::Jp do
     end
 
     describe 'invalid' do
+      describe 'invalid fqdn' do
+        %w(
+          .com
+          example.
+          .
+          example..com
+          .example.com
+        ).each do |invalid_fqdn|
+          context "#{invalid_fqdn}" do
+            let(:domain) { invalid_fqdn }
+
+            it { is_expected.to be_falsey }
+          end
+        end
+      end
+
       describe 'singlebyte' do
         context 'subdomain' do
           let(:domain) { 'sub.example.com' }
