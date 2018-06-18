@@ -1,4 +1,4 @@
-# :flag-jp: DomainValidatorJp
+# :jp: DomainValidatorJp
 
 <a href="https://rubygems.org/gems/domain-validator-jp" title="npm"><img src="https://img.shields.io/gem/v/domain-validator-jp.svg"></a>
 <a href="https://travis-ci.org/kimromi/domain-validator-jp" title="travis"><img src="https://img.shields.io/travis/kimromi/domain-validator-jp.svg"></a>
