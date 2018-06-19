@@ -1,19 +1,19 @@
-# :jp: DomainValidator::Jp
+# :jp: DomainValidatorJp
 
-<a href="https://rubygems.org/gems/domain_validator-jp" title="npm"><img src="https://img.shields.io/gem/v/domain_validator-jp.svg"></a>
-<a href="https://travis-ci.org/kimromi/domain_validator-jp" title="travis"><img src="https://img.shields.io/travis/kimromi/domain_validator-jp.svg"></a>
-<a href="https://github.com/kimromi/domain_validator-jp/blob/master/LICENSE" title="MIT License"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
+<a href="https://rubygems.org/gems/domain_validator_jp" title="npm"><img src="https://img.shields.io/gem/v/domain_validator_jp.svg"></a>
+<a href="https://travis-ci.org/kimromi/domain_validator_jp" title="travis"><img src="https://img.shields.io/travis/kimromi/domain_validator_jp.svg"></a>
+<a href="https://github.com/kimromi/domain_validator_jp/blob/master/LICENSE" title="MIT License"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
 
 domain name validator includes JP domain
 
 ## Usage
 
 ```rb
-DomainValidator::Jp.new('example.jp').valid?        # => true
-DomainValidator::Jp.new('日本語.jp').valid?         # => true
+DomainValidatorJp.new('example.jp').valid?        # => true
+DomainValidatorJp.new('日本語.jp').valid?         # => true
 
-DomainValidator::Jp.new('①②③.jp').valid?            # => false
-DomainValidator::Jp.new('example.wrongtld').valid?  # => false
+DomainValidatorJp.new('①②③.jp').valid?            # => false
+DomainValidatorJp.new('example.wrongtld').valid?  # => false
 ```
 
 ## Installation
@@ -21,7 +21,7 @@ DomainValidator::Jp.new('example.wrongtld').valid?  # => false
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'domain_validator-jp'
+gem 'domain_validator_jp'
 ```
 
 And then execute:
@@ -30,7 +30,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install domain_validator-jp
+    $ gem install domain_validator_jp
 
 ## Development
 
@@ -40,4 +40,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/kimromi/domain-validator-jp.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kimromi/domain-validator_jp.

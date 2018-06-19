@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe DomainValidator::Jp do
+RSpec.describe DomainValidatorJp do
   describe '#valid?' do
     subject { described_class.new(domain).valid? }
 
