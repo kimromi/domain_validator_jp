@@ -1,17 +1,17 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "domain_validator/jp/version"
+require "domain_validator_jp/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "domain_validator-jp"
-  spec.version       = DomainValidator::Jp::VERSION
+  spec.name          = "domain_validator_jp"
+  spec.version       = DomainValidatorJp::VERSION
   spec.authors       = ["kimromi"]
   spec.email         = ["kimromi4@gmail.com"]
 
   spec.summary       = %q{domain name validator includes JP domain}
   spec.description   = %q{domain name validator includes JP domain}
-  spec.homepage      = "https://github.com/kimromi/domain_validator-jp"
+  spec.homepage      = "https://github.com/kimromi/domain_validator_jp"
 
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
