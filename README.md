@@ -9,11 +9,10 @@ domain name validator includes JP domain
 ## Usage
 
 ```rb
-DomainValidatorJp.new('example.jp').valid?        # => true
-DomainValidatorJp.new('日本語.jp').valid?         # => true
-
-DomainValidatorJp.new('①②③.jp').valid?            # => false
-DomainValidatorJp.new('example.wrongtld').valid?  # => false
+DomainValidatorJp.valid?('example.jp')        # => true
+DomainValidatorJp.valid?('日本語.jp')         # => true
+DomainValidatorJp.valid?('①②③.jp')            # => false
+DomainValidatorJp.valid?('example.wrongtld')  # => false
 ```
 
 ## Installation
