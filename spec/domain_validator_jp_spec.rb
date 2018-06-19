@@ -2,7 +2,7 @@
 
 RSpec.describe DomainValidatorJp do
   describe '#valid?' do
-    subject { described_class.new(domain).valid? }
+    subject { described_class.valid?(domain) }
 
     describe 'valid' do
       context 'english domain' do
