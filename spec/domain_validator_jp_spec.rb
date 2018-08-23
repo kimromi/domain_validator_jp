@@ -17,6 +17,7 @@ RSpec.describe DomainValidatorJp do
         日本語
         ぁ
         ァ
+        ・ヽヾゝゞ仝々〆〇ー
       ).each do |valid_japanese|
         context "japanese domain #{valid_japanese}" do
           let(:domain) { "#{valid_japanese}.com" }
