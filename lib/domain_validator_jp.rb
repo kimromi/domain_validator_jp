@@ -30,6 +30,8 @@ module DomainValidatorJp
 
     def parsed(domain)
       PublicSuffix.parse(domain)
+    rescue PublicSuffix::DomainNotAllowed
+      PublicSuffix::Domain.new(domain)   # set as TLD
     end
 
     # common
