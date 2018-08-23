@@ -79,7 +79,7 @@ module DomainValidatorJp
     end
 
     def valid_jisx0208?(domain)
-      valid = /^#{utf8_to_sjis("[\-0-9A-Za-zぁ-んァ-ヶ亜-腕弌-熙]")}+$/
+      valid = /^#{utf8_to_sjis("[\-0-9A-Za-z・ヽヾゝゞ仝々〆〇ーぁ-んァ-ヶ亜-腕弌-熙]")}+$/
       valid.match(utf8_to_sjis(parsed(domain).sld)) if utf8_to_sjis(parsed(domain).sld)
     end
 
