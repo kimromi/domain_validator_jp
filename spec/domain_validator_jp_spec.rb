@@ -98,6 +98,12 @@ RSpec.describe DomainValidatorJp do
 
           it { is_expected.to be_falsey }
         end
+
+        context 'domain equals cctld with subdomain' do
+          let(:domain) { 'co.uk' }
+
+          it { is_expected.to be_falsey }
+        end
       end
 
       describe 'multibyte' do
