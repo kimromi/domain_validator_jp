@@ -5,6 +5,7 @@ module DomainValidatorJp
   class << self
     def valid?(domain)
       return false unless fqdn?(domain)
+      return false unless valid_sld_included?(domain)
       return false if include_subdomain?(domain)
       return false unless valid_public_suffix?(domain)
       return false unless valid_sld_not_dotted?(domain)
@@ -35,6 +36,10 @@ module DomainValidatorJp
     end
 
     # common
+
+    def valid_sld_included?(domain)
+      !!parsed(domain).sld
+    end
 
     def include_subdomain?(domain)
       !parsed(domain).subdomain.nil?
