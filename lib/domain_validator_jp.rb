@@ -41,7 +41,7 @@ module DomainValidatorJp
     end
 
     def valid_public_suffix?(domain)
-      PublicSuffix.valid?(domain, default_rule: nil, ignore_private: true)
+      PublicSuffix.valid?(domain, default_rule: nil)
     end
 
     def valid_sld_not_dotted?(domain)
