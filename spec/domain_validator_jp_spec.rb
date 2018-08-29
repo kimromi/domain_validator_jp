@@ -104,6 +104,12 @@ RSpec.describe DomainValidatorJp do
 
           it { is_expected.to be_falsey }
         end
+
+        context 'domain equals private domain' do
+          let(:domain) { 'blogspot.com' }
+
+          it { is_expected.to be_falsey }
+        end
       end
 
       describe 'multibyte' do
